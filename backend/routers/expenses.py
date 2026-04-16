@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Query
-from typing import List
+from typing import List, Optional
 from datetime import date, datetime
 from database import supabase
 from models import Expense, ExpenseCreate
