@@ -1,21 +1,9 @@
 {
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "^/api/(.*)",
-      "destination": "backend/main.py"
-    },
-    {
-      "src": "/(.*)",
-      "destination": "/index.html"
-    }
+  "buildCommand": "cd frontend && npm ci && npm run build",
+  "outputDirectory": "frontend/dist",
+  "installCommand": "npm ci --legacy-peer-deps",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://kirana-store-api.onrender.com/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
