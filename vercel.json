@@ -1,7 +1,6 @@
 {
-  "buildCommand": "cd frontend && npm ci && npm run build",
+  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm ci --legacy-peer-deps",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "https://kirana-store-api.onrender.com/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
