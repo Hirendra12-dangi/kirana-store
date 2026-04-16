@@ -1,6 +1,14 @@
 {
-  "buildCommand": "cd frontend && npm install --legacy-peer-deps && node node_modules/vite/bin/vite.js build",
-  "outputDirectory": "frontend/dist",
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm install --legacy-peer-deps && node node_modules/vite/bin/vite.js build"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
